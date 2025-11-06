@@ -1,0 +1,73 @@
+
+/* --- Estilos para as Seções de Imagem/Texto Lado a Lado --- */
+.content-block {
+    display: flex; /* Habilita o Flexbox para alinhar os itens horizontalmente */
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    margin-bottom: 10px;
+    gap: 5px; /* Espaço entre a imagem e o texto */
+    padding: 20px 0;
+}
+
+.content-block img {
+    width: 30%; /* A imagem ocupa 40% da largura do bloco */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    /* Para replicar o rascunho (quadrado amarelo), defina uma altura e largura fixa se quiser: */
+    /* width: 150px; height: 150px; */ 
+}
+
+.text-content {
+    width: 60%; /* O texto ocupa 60% da largura do bloco */
+}
+
+/* Para inverter o layout (Imagem à Direita) */
+.right-image {
+    flex-direction: row-reverse; /* Inverte a ordem da imagem e do texto */
+}
+
+
+/* --- Estilos do Player de Áudio (Retângulo Verde) --- */
+.audio-player-container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border: 3px solid #150467; /* A borda verde forte, como no rascunho */
+    background-color: #8a79c8b8; /* Fundo verde claro para destacar */
+    border-radius: 10px;
+}
+
+.audio-player-container audio {
+    width: 100%; /* Faz o player ocupar toda a largura do seu contêiner */
+    min-width: 300px; /* Garante que o player fique grande o suficiente */
+}
+
+.description {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* CSS para Telas Menores (Responsividade) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .content-block {
+        /* Em telas pequenas, a imagem e o texto se empilham verticalmente */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-block img, .text-content {
+        width: 100%; /* Ocupa 100% da largura para empilhar */
+    }
+
+    /* Garantir que a ordem fique normal após o empilhamento */
+    .right-image {
+        flex-direction: column; 
+    }
+}
